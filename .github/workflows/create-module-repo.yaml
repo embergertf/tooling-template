@@ -63,7 +63,7 @@ jobs:
       - uses: cschleiden/replace-tokens@v1
         name: Replace tokens in Terraform files
         with:
-          files: '["**/*.tf"]'
+          files: '["**/*.tf", "./module-repo-template/CHANGELOG.md"]'
         env:
           MODULENAME: '${{ github.event.inputs.module-name }}' #"application-insights"
           MODULEDISPLAYNAME: '${{ github.event.inputs.module-display-name }}' #"Application Insights"
@@ -72,12 +72,12 @@ jobs:
 
       # Check result on 1 file
       - name: Check token replacement in 1 file
-        run: cat ../tooling-template/module-repo-template/main.tf
+        run: cat ./module-repo-template/main.tf
 
       # Initialize the folder as a git repo
       - name: Init new git repo
         run: |
-          cd "../tooling-template/module-repo-template"
+          cd "./module-repo-template"
           git config --global init.defaultBranch main
           git config --global user.email "gh@emwito.com"
           git config --global user.name "GH Actions"

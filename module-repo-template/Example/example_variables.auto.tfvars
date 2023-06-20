@@ -3,5 +3,5 @@
 #
 
 #--------------------------------------------------------------
-#   Test #{MODULENAME}# module variables' values
+#   Test #{MODULEDISPLAYNAME}# module variables' values
 #--------------------------------------------------------------
