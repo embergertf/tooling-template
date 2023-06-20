@@ -63,7 +63,7 @@ jobs:
       - uses: cschleiden/replace-tokens@v1
         name: Replace tokens in Terraform files
         with:
-          files: '["**/*.tf", "./module-repo-template/CHANGELOG.md"]'
+          files: '["**/*.tf", "**/*.tfvars", "**/*.md"]'
         env:
           MODULENAME: '${{ github.event.inputs.module-name }}' #"application-insights"
           MODULEDISPLAYNAME: '${{ github.event.inputs.module-display-name }}' #"Application Insights"
