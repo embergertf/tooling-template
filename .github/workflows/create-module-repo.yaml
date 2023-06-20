@@ -73,16 +73,20 @@ jobs:
       - name: Check token replacement in 1 file
         run: cat ../tooling-template/module-repo-template/main.tf
 
-      # Create the new GitHub repository
-      - name: Creating module repository
-        uses: f1lander/create-repository-action@v1.0.2
-        id: create-repo
-        with:
-          name: '$REPO_PREFIX-${{ github.event.inputs.module-name }}'
-          org: '$ORG_NAME'
-          private: false
-          access-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
+      # # Create the new GitHub repository
+      # - name: Creating module repository
+      #   uses: f1lander/create-repository-action@v1.0.2
+      #   id: create-repo
+      #   with:
+      #     name: '$REPO_PREFIX-${{ github.event.inputs.module-name }}'
+      #     org: '$ORG_NAME'
+      #     private: false
+      #     access-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
 
-      # Clone the new GitHub repository
-      - name: Cloning module repository
-        run: git clone https://gopher194:${{ secrets.ORG_ADMIN_TOKEN }}@github.com/$ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }}.git
+      # # Clone the new GitHub repository
+      # - name: Cloning module repository
+      #   run: git clone https://gopher194:${{ secrets.ORG_ADMIN_TOKEN }}@github.com/$ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }}.git
+
+      # Testing gh CLI
+      - name: Testing GH CLI
+        run: gh --version
