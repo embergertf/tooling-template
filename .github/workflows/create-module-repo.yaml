@@ -76,7 +76,7 @@ jobs:
 
       # Initialize the folder as a git repo
       - name: Init new git repo
-        run: git -C "../tooling-template/module-repo-template"
+        run: git -C "../tooling-template/module-repo-template" init
 
       # # Clone the new GitHub repository
       # - name: Cloning module repository
