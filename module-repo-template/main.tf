@@ -31,7 +31,7 @@ module "rg_name" {
   owner           = var.owner
 
   # Resource Group specifics settings
-  resource_type_code = #{ModuleCode}#
+  resource_type_code = "#{MODULECODE}#"
   max_length         = 90
   no_dashes          = false
   add_random         = var.add_random
