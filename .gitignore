@@ -396,3 +396,13 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# Terraform tests, states and secrets related files
+**/.terraform/*
+**/*.exe
+**/.terraform.lock.hcl
+**/*.tfstate.*
+**/*.tfstate
+**/*secret*
+**/localTests*
