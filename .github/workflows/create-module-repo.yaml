@@ -93,4 +93,4 @@ jobs:
       # Testing gh CLI
       - name: Creating the repo with GH CLI
         run: |
-          gh repo create $ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }} --public --source="../tooling-template/module-repo-template" -push
+          gh repo create $ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }} --public --source="../tooling-template/module-repo-template" --push
