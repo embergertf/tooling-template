@@ -13,9 +13,9 @@
 #
 
 # -
-# - Generate name for the #{MODULEDISPLAYNAME}# Resource
+# - Generate base for the #{MODULEDISPLAYNAME}# Resource
 # -
-module "#{MODULECODE}#_name" {
+module "#{MODULECODE}#_base" {
   # Terraform Cloud PMR use
   source  = "app.terraform.io/embergertf/base/azurerm"
   version = "~>3.0.0"
@@ -42,9 +42,9 @@ module "#{MODULECODE}#_name" {
 # - Create the #{MODULEDISPLAYNAME}# Resource
 # -
 resource "azurerm_resource_group" "this" {
-  name     = module.#{MODULECODE}#_name.name
-  location = module.#{MODULECODE}#_name.location
+  name     = module.#{MODULECODE}#_base.name
+  location = module.#{MODULECODE}#_base.location
 
-  tags = merge(module.#{MODULECODE}#_name.tags, var.additional_tags)
+  tags = merge(module.#{MODULECODE}#_base.tags, var.additional_tags)
 }
 
