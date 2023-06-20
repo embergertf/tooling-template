@@ -13,14 +13,19 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      module-name:
-        description: 'Enter a module name, like "keyvault" to create "terraform-azurerm-keyvault" repository.'
-        required: true
-        default: ''
       module-display-name:
         description: 'Enter the module Display name, like "Key vault".'
         required: true
         default: ''
+      module-name:
+        description: 'Enter a module name, like "keyvault" to create "terraform-azurerm-keyvault" repository.'
+        required: true
+        default: ''
+      module-code:
+        description: 'Enter the module code/prefix, like "kv".'
+        required: true
+        default: ''
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -56,9 +61,9 @@ jobs:
           files: '["**/*.tf"]'
         env:
           MODULENAME: '${{ github.event.inputs.module-name }}' #"application-insights"
-          MODULEDISPLAYNAME: ${{ github.event.inputs.module-display-name }}' #"Application Insights"
+          MODULEDISPLAYNAME: '${{ github.event.inputs.module-display-name }}' #"Application Insights"
           CREATIONDATE: "2023-06-20"
-          MODULECODE: "api"
+          MODULECODE: '${{ github.event.inputs.module-code }}' # "api"
 
       # Check result on 1 file
       - name: Check token replacement in 1 file
