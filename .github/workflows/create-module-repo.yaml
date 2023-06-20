@@ -71,7 +71,7 @@ jobs:
 
       # Create the new GitHub repository
       - name: Creating module repository
-        uses: f1lander/create-repository-action@v1
+        uses: f1lander/create-repository-action@v1.0.2
         id: create-repo
         with:
           name: 'terraform-azurerm-${{ github.event.inputs.module-name }}'
