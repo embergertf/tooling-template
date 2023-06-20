@@ -77,7 +77,12 @@ jobs:
       # Initialize the folder as a git repo
       - name: Init new git repo
         run: |
-          git -C "../tooling-template/module-repo-template" init
+          cd "../tooling-template/module-repo-template"
+          git config --global init.defaultBranch main
+          git config --global user.email "gh@emwito.com"
+          git config --global user.name "GH Actions"
+          git init
+          git branch -m main
           git add .
           git commit -m "${{ github.event.inputs.module-display-name }} repo creation"
 
