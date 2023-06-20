@@ -85,5 +85,4 @@ jobs:
       # Testing gh CLI
       - name: Creating the repo with GH CLI
         run: |
-          gh auth login
           gh repo create $REPO_PREFIX-${{ github.event.inputs.module-name }} --public --source="../tooling-template/module-repo-template"
