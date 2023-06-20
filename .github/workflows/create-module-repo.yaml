@@ -29,7 +29,6 @@ on:
 env:
   ORG_NAME: embergertf
   REPO_PREFIX: terraform-azurerm
-  REPO_NAME: $REPO_PREFIX-${{ github.event.inputs.module-name }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -79,11 +78,11 @@ jobs:
         uses: f1lander/create-repository-action@v1.0.2
         id: create-repo
         with:
-          name: '$REPO_NAME'
+          name: '$REPO_PREFIX-${{ github.event.inputs.module-name }}'
           org: '$ORG_NAME'
           private: false
           access-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
 
       # Clone the new GitHub repository
       - name: Cloning module repository
-        run: git clone https://github.com/$ORG_NAME/$REPO_NAME.git
+        run: git clone https://github.com/$ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }}.git
