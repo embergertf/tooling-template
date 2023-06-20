@@ -10,6 +10,5 @@ Variables are:
 
 #{CREATIONDATE}#
 #{MODULENAME}#
-#{ModuleCode}#
-#{VersionDate}#
-#{VersionTag}#
+#{MODULEDISPLAYNAME}#
+#{MODULECODE}#

@@ -1,8 +1,8 @@
-# #{MODULENAME}# module
+# #{MODULEDISPLAYNAME}# module
 
 ## Overview
 
-This #{MODULENAME}# module provides the following features:
+This #{MODULEDISPLAYNAME}# module provides the following features:
 
 
 ## Notes

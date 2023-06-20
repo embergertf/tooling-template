@@ -7,13 +7,13 @@
 # Modified on: 
 # Modified by: 
 # Overview:
-#   This #{MODULENAME}# module:
+#   This #{MODULEDISPLAYNAME}# module:
 #   - ,
 #   - .
 #
 
 # -
-# - Generate name for the #{MODULENAME}# Resource
+# - Generate name for the #{MODULEDISPLAYNAME}# Resource
 # -
 module "rg_name" {
   # Terraform Cloud PMR use
@@ -39,7 +39,7 @@ module "rg_name" {
 }
 
 # -
-# - Create the #{MODULENAME}# Resource
+# - Create the #{MODULEDISPLAYNAME}# Resource
 # -
 resource "azurerm_resource_group" "this" {
   name     = module.rg_name.name

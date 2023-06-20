@@ -36,8 +36,10 @@ jobs:
           echo test, and deploy your project.
 
       # Where are we?
-      - name: Run pwd
-        run: pwd
+      - name: Run pwd & ls
+        run: |
+          pwd
+          ls -al
 
       # Replace tokens in Terraform files
       - uses: cschleiden/replace-tokens@v1
@@ -45,7 +47,8 @@ jobs:
         with:
           files: '["**/*.tf"]'
         env:
-          MODULENAME: "Application Insights"
+          MODULENAME: "application-insights"
+          MODULEDISPLAYNAME: "Application Insights"
           CREATIONDATE: "2023-06-20"
           MODULECODE: "api"
 
