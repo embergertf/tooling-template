@@ -29,7 +29,7 @@ on:
 env:
   ORG_NAME: embergertf
   REPO_PREFIX: terraform-azurerm
-  # GH_TOKEN: ${{ github.token }}
+  GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -85,5 +85,5 @@ jobs:
       # Testing gh CLI
       - name: Creating the repo with GH CLI
         run: |
-          gh auth login --with-token < ${{ secrets.ORG_ADMIN_TOKEN }}
+          gh auth login
           gh repo create $REPO_PREFIX-${{ github.event.inputs.module-name }} --public --source="../tooling-template/module-repo-template"
