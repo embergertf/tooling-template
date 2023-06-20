@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Create new module repo
+name: Create a module repo
 
 # Controls when the workflow will run
 on:
@@ -29,7 +29,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  GenerateRepoFiles:
+  CreateModuleRepo:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -68,3 +68,14 @@ jobs:
       # Check result on 1 file
       - name: Check token replacement in 1 file
         run: cat ../tooling-template/module-repo-template/main.tf
+
+      # Create the new GitHub repository
+      - name: Creating module repository
+        uses: repo-ctrl/create-repo-action@main
+        id: create-repo
+        with:
+          repo-name: 'terraform-azurerm-${{ github.event.inputs.module-name }}'
+          org-admin-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
+
+      - name: Log URL to the repo
+        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
