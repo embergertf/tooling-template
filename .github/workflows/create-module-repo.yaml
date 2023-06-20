@@ -76,7 +76,10 @@ jobs:
 
       # Initialize the folder as a git repo
       - name: Init new git repo
-        run: git -C "../tooling-template/module-repo-template" init
+        run: |
+          git -C "../tooling-template/module-repo-template" init
+          git add .
+          git commit -m "${{ github.event.inputs.module-display-name }} repo creation"
 
       # # Clone the new GitHub repository
       # - name: Cloning module repository
@@ -85,4 +88,4 @@ jobs:
       # Testing gh CLI
       - name: Creating the repo with GH CLI
         run: |
-          gh repo create $ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }} --public --source="../tooling-template/module-repo-template"
+          gh repo create $ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }} --public --source="../tooling-template/module-repo-template" -push
