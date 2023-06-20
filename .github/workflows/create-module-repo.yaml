@@ -26,6 +26,11 @@ on:
         required: true
         default: ''
 
+env:
+  ORG_NAME: embergertf
+  REPO_PREFIX: terraform-azurerm
+  REPO_NAME: $REPO_PREFIX-${{ github.event.inputs.module-name }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -74,10 +79,11 @@ jobs:
         uses: f1lander/create-repository-action@v1.0.2
         id: create-repo
         with:
-          name: 'terraform-azurerm-${{ github.event.inputs.module-name }}'
-          org: 'embergertf'
+          name: '$REPO_NAME'
+          org: '$ORG_NAME'
           private: false
           access-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
 
-      - name: Log URL to the repo
-        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-id }}"
+      # Clone the new GitHub repository
+      - name: Cloning module repository
+        run: git clone https://github.com/$ORG_NAME/$REPO_NAME.git
