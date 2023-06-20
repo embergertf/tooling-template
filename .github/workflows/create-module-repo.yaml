@@ -85,4 +85,4 @@ jobs:
 
       # Clone the new GitHub repository
       - name: Cloning module repository
-        run: git clone https://github.com/$ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }}.git
+        run: git clone https://gopher194:${{ secrets.ORG_ADMIN_TOKEN }}@github.com/$ORG_NAME/$REPO_PREFIX-${{ github.event.inputs.module-name }}.git
