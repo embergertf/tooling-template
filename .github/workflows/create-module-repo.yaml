@@ -71,11 +71,13 @@ jobs:
 
       # Create the new GitHub repository
       - name: Creating module repository
-        uses: repo-ctrl/create-repo-action@main
+        uses: f1lander/create-repository-action@v1
         id: create-repo
         with:
-          repo-name: 'terraform-azurerm-${{ github.event.inputs.module-name }}'
-          org-admin-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
+          name: 'terraform-azurerm-${{ github.event.inputs.module-name }}'
+          org: 'embergertf'
+          private: false
+          access-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
 
       - name: Log URL to the repo
-        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
+        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-id }}"
