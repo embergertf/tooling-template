@@ -3,7 +3,7 @@
 #
 
 #--------------------------------------------------------------
-#   Test #{ModuleName}# module Main
+#   Test #{MODULENAME}# module Main
 #--------------------------------------------------------------
 # Test naming cascade
 module "rg_cascade" {

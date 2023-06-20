@@ -34,3 +34,21 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # Where are we?
+      - name: Run a multi-line script
+        run: |
+          pwd
+          echo $GITHUB_WORKSPACE
+
+      # Replace tokens in Terraform files
+      - uses: cschleiden/replace-tokens@v1
+        with:
+          files: '["**/*.tf"]'
+        env:
+          MODULENAME: "Test module"
+          CREATIONDATE: "2023-06-20"
+
+      # Check result on 1 file
+      - name: Check token replacement in 1 file
+        run: cat ../tooling-template/module-repo-template/main.tf

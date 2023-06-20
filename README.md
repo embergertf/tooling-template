@@ -8,8 +8,8 @@ This repo hosts the templates and the GitHub Actions to create a new Terraform m
 
 Variables are:
 
-#{CreationDate}#
-#{ModuleName}#
+#{CREATIONDATE}#
+#{MODULENAME}#
 #{ModuleCode}#
 #{VersionDate}#
 #{VersionTag}#

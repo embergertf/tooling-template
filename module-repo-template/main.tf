@@ -2,18 +2,18 @@
 # Copyright 2023 Emmanuel Bergerat
 #
 
-# Created  on: #{CreationDate}#
+# Created  on: #{CREATIONDATE}#
 # Created  by: Emmanuel
 # Modified on: 
 # Modified by: 
 # Overview:
-#   This #{ModuleName}# module:
+#   This #{MODULENAME}# module:
 #   - ,
 #   - .
 #
 
 # -
-# - Generate name for the #{ModuleName}# Resource
+# - Generate name for the #{MODULENAME}# Resource
 # -
 module "rg_name" {
   # Terraform Cloud PMR use
@@ -39,7 +39,7 @@ module "rg_name" {
 }
 
 # -
-# - Create the #{ModuleName}# Resource
+# - Create the #{MODULENAME}# Resource
 # -
 resource "azurerm_resource_group" "this" {
   name     = module.rg_name.name
