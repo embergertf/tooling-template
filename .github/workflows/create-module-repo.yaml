@@ -74,15 +74,9 @@ jobs:
       - name: Check token replacement in 1 file
         run: cat ../tooling-template/module-repo-template/main.tf
 
-      # # Create the new GitHub repository
-      # - name: Creating module repository
-      #   uses: f1lander/create-repository-action@v1.0.2
-      #   id: create-repo
-      #   with:
-      #     name: '$REPO_PREFIX-${{ github.event.inputs.module-name }}'
-      #     org: '$ORG_NAME'
-      #     private: false
-      #     access-token: '${{ secrets.ORG_ADMIN_TOKEN }}'
+      # Initialize the folder as a git repo
+      - name: Init new git repo
+        run: git -C "../tooling-template/module-repo-template"
 
       # # Clone the new GitHub repository
       # - name: Cloning module repository
